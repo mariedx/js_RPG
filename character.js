@@ -19,6 +19,11 @@ class Character {
   }
 
   dealDamage(victim) {
-    victim.hp -= this.dmg;
+    if (victim.hp <= 0) {
+      console.log(`${victim.name} est mort, inattaquable.`)
+    }
+    else {
+      victim.hp -= this.dmg;
+    }
   }
 }
