@@ -8,6 +8,7 @@ class Paladin extends Character {
       victim.hp -= 4;
       this.hp += 5;
       this.mana -= 40;
+      console.log(`${this.name} a désormais ${this.hp} points de vie. Il dispose maintenant de ${this.mana}.`)
     }
   }
 }

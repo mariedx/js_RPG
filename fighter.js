@@ -5,8 +5,11 @@ class Fighter extends Character {
 
   darkVision(victim) {
     if (this.mana >= 20) {
-      victim.hp -= 5;
+      newDmg = 5;
+      victim.hp -= newDmg;
       this.mana -= 20;
+      // prendra 2 dégâts de moins par coup reçu
+      console.log(`${this.name} a désormais ${this.hp} points de vie. Il dispose maintenant de ${this.mana}.`)
     }
   }
 }

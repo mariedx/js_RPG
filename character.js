@@ -7,23 +7,22 @@ class Character {
     this.status = status
   }
 
-  takeDamage(numberDamage) {
+  takeDamage(attacker) {
     if (this.hp <= 0) {
       this.status = "loser"
-      console.log(`${this.name} est mort.`)
+      console.log(`${this.name} a périt dignement.`)
     }
     else {
-      this.hp -= numberDamage
-      console.log(`${this.name} a perdu ${numberDamage}, il a maintenant ${this.hp} points de vie.`)
+      this.hp -= attacker.dmg;
+      console.log(`${this.name} a subit ${attacker.dmg} damages, il a maintenant ${this.hp} points de vie.`)
     }
   }
 
   dealDamage(victim) {
-    if (victim.hp <= 0) {
-      console.log(`${victim.name} est mort, inattaquable.`)
-    }
-    else {
-      victim.hp -= this.dmg;
+    victim.hp -= this.dmg;
+    if (victim.status === "loser") {
+      this.mana += 20;
+      console.log(`${this.name} a tué ${victim.name}, il dispose maintenant de ${this.mana}.`)
     }
   }
 }
