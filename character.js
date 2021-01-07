@@ -7,26 +7,24 @@ class Character {
     this.status = status;
   }
 
-  takeDamage(attacker) {
-    if (!isDead) {
-      this.hp -= attacker.dmg;
-      console.log(`${this.name} a subit ${attacker.dmg} damages, il a maintenant ${this.hp} points de vie.`)
-    }
+  takesDamage(attacker, receivedDamages) {
+    this.hp -= receivedDamages;
+    console.log(`Il reste à ${this.name} ${this.hp}`);
+    this.lostGame(attacker);
   }
 
-  basicAttack(victim) {
-    victim.hp -= this.dmg;
-    if (victim.status === "loser") {
-      this.mana += 20;
-      console.log(`${this.name} a tué ${victim.name}, il dispose maintenant de ${this.mana}.`)
-    }
+  basicAttack(victim, inflictedDamages = this.dmg) {
+    inflictedDamages = this.dmg;
+    console.log(`${this.name} inflige ${inflictedDamages} à ${victim.name}`);
+    victim.takesDamage(this, inflictedDamages);
   }
 
-  isDead() {
+  lostGame(attacker){
     if (this.hp <= 0) {
-      this.status = "loser";
-      console.log(`${this.name} a périt dignement.`)
-      return true;
+      this.status = 'Looser';
+      attacker.mana += 20;
+      console.log(`OH NOOOOOON ${this.name} est moooooooooooooooooort.e !`);
+      console.log(`La cruauté de ${attacker.name} est recompensée de 20pts de mana`);
     }
   }
 }

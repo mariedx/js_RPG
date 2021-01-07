@@ -4,8 +4,6 @@ class Game {
     this.characters = [];
     this.createCharacters();
     this.newTurn();
-    this.startTurn();
-    
   }
 
   createCharacters() {
@@ -30,9 +28,8 @@ class Game {
   }
   
   newTurn() {
-    if (this.turnLeft > 0){
-      const turn = new Turn(11 - this.turnLeft, this.characters);
-      console.log(`C'est le tour numéro ${turn.number}.`)
+    if (this.turnLeft > 0) {
+      new Turn(11 - this.turnLeft, this.characters);
       this.turnLeft -= 1 
     }
     else {
@@ -40,12 +37,7 @@ class Game {
     }
   }
   
-  startTurn() {
-    const currentPlayer = this.characters[Math.floor(Math.random() * this.characters.length)];
-    console.log(`${currentPlayer.name} passe à l'attaque.`)
-  }
 }
-
 
 console.log('*****************************************')
 console.log('****** Bienvenue sur notre jeu **********')
