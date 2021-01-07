@@ -4,12 +4,14 @@ class Fighter extends Character {
   }
 
   specialAttack(victim) {
-    if (this.mana >= 20) {
-      newDmg = 5;
-      victim.hp -= newDmg;
-      this.mana -= 20;
-      // prendra 2 dégâts de moins par coup reçu
-      console.log(`${this.name} a désormais ${this.hp} points de vie. Il dispose maintenant de ${this.mana} mana.`)
+  if (this.mana >= 20){
+    this.mana -= 20;
+    this.basicAttack(victim, 5);
+    console.log(`${this.name} utilise l'attaque Dark Vision sur ${victim.name}. ${victim.name} perd 5pts de vie ! ${this.name} gagne 2pts de mana !  Il dispose maintenant de ${this.mana} mana.`);
+    } 
+    else {
+    console.log('Not enough mana pour faire ça, déso mais ça part en attaque de BASE');
+    this.basicAttack(victim, this.dmg);
     }
   }
 }
