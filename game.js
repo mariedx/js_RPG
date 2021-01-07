@@ -28,15 +28,12 @@ class Game {
   }
   
   newTurn() {
-    if (this.turnLeft > 0) {
+    while (this.turnLeft > 0) {
       new Turn(11 - this.turnLeft, this.characters);
       this.turnLeft -= 1 
     }
-    else {
-      console.log('La partie est terminée !')
-    }
+    console.log('La partie est terminée !')
   }
-  
 }
 
 console.log('*****************************************')

@@ -9,17 +9,17 @@ class Character {
 
   takesDamage(attacker, receivedDamages) {
     this.hp -= receivedDamages;
-    console.log(`Il reste à ${this.name} ${this.hp}`);
-    this.lostGame(attacker);
+    console.log(`Il reste à ${this.name} ${this.hp} points de vie.`);
+    this.isKilled(attacker);
   }
 
   basicAttack(victim, inflictedDamages = this.dmg) {
     inflictedDamages = this.dmg;
-    console.log(`${this.name} inflige ${inflictedDamages} à ${victim.name}`);
+    console.log(`${this.name} inflige ${inflictedDamages} degats à ${victim.name}.`);
     victim.takesDamage(this, inflictedDamages);
   }
 
-  lostGame(attacker){
+  isKilled(attacker){
     if (this.hp <= 0) {
       this.status = 'Looser';
       attacker.mana += 20;
@@ -27,4 +27,5 @@ class Character {
       console.log(`La cruauté de ${attacker.name} est recompensée de 20pts de mana`);
     }
   }
+
 }

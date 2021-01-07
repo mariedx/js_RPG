@@ -7,7 +7,7 @@ class Monk extends Character {
     if (this.mana >= 25) {
       this.hp += 8;
       this.mana -= 25;
-      console.log(`${this.name} a désormais ${this.hp} points de vie. Il dispose maintenant de ${this.mana}.`)
+      console.log(`${this.name} a désormais ${this.hp} points de vie. Il dispose maintenant de ${this.mana} mana.`)
     }
   }
 }

@@ -11,7 +11,7 @@ class Assassin extends Character {
       if (victim.status != "loser") {
         this.hp -= 7
       }
-      console.log(`${this.name} infligera ${this.dmg + 7} dégats  au prochain tour. Il a désormais ${this.hp} points de vie et dispose de ${this.mana}.`)
+      console.log(`${this.name} infligera ${this.dmg + 7} dégats  au prochain tour. Il a désormais ${this.hp} points de vie et dispose de ${this.mana} mana.`)
     }
   }
 }

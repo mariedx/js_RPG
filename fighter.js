@@ -9,7 +9,7 @@ class Fighter extends Character {
       victim.hp -= newDmg;
       this.mana -= 20;
       // prendra 2 dégâts de moins par coup reçu
-      console.log(`${this.name} a désormais ${this.hp} points de vie. Il dispose maintenant de ${this.mana}.`)
+      console.log(`${this.name} a désormais ${this.hp} points de vie. Il dispose maintenant de ${this.mana} mana.`)
     }
   }
 }
